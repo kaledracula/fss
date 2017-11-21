@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/cony-framework/cony-context/cony-context.iml" filepath="$PROJECT_DIR$/cony-framework/cony-context/cony-context.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cony-framework/cony-data-common/cony-data-common.iml" filepath="$PROJECT_DIR$/cony-framework/cony-data-common/cony-data-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cony-framework/cony-data-jpa/cony-data-jpa.iml" filepath="$PROJECT_DIR$/cony-framework/cony-data-jpa/cony-data-jpa.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cony-framework/cony-data-mybatis/cony-data-mybatis.iml" filepath="$PROJECT_DIR$/cony-framework/cony-data-mybatis/cony-data-mybatis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cony-framework/cony-es/cony-es.iml" filepath="$PROJECT_DIR$/cony-framework/cony-es/cony-es.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cony-framework/cony-file/cony-file.iml" filepath="$PROJECT_DIR$/cony-framework/cony-file/cony-file.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cony-framework/cony-framework.iml" filepath="$PROJECT_DIR$/cony-framework/cony-framework.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cony-projects/cony-fss/cony-fss.iml" filepath="$PROJECT_DIR$/cony-projects/cony-fss/cony-fss.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cony-framework/cony-log/cony-log.iml" filepath="$PROJECT_DIR$/cony-framework/cony-log/cony-log.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cony-framework/cony-mq/cony-mq.iml" filepath="$PROJECT_DIR$/cony-framework/cony-mq/cony-mq.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/cony-paas.iml" filepath="$PROJECT_DIR$/.idea/cony-paas.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cony-projects/cony-projects.iml" filepath="$PROJECT_DIR$/cony-projects/cony-projects.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cony-framework/cony-web/cony-web.iml" filepath="$PROJECT_DIR$/cony-framework/cony-web/cony-web.iml" />
+    </modules>
+  </component>
+</project>

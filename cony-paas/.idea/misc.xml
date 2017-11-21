@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/cony-framework/pom.xml" />
+        <option value="$PROJECT_DIR$/cony-framework/cony-context/pom.xml" />
+        <option value="$PROJECT_DIR$/cony-framework/cony-data-jpa/pom.xml" />
+        <option value="$PROJECT_DIR$/cony-framework/cony-data-common/pom.xml" />
+        <option value="$PROJECT_DIR$/cony-framework/cony-data-mybatis/pom.xml" />
+        <option value="$PROJECT_DIR$/cony-framework/cony-web/pom.xml" />
+        <option value="$PROJECT_DIR$/cony-framework/cony-file/pom.xml" />
+        <option value="$PROJECT_DIR$/cony-framework/cony-es/pom.xml" />
+        <option value="$PROJECT_DIR$/cony-framework/cony-log/pom.xml" />
+        <option value="$PROJECT_DIR$/cony-framework/cony-mq/pom.xml" />
+        <option value="$PROJECT_DIR$/cony-projects/pom.xml" />
+        <option value="$PROJECT_DIR$/cony-projects/cony-fss/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_3" default="false" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
+</project>

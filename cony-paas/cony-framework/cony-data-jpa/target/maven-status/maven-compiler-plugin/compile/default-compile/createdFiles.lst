@@ -1,0 +1,7 @@
+com\cony\data\jpa\entity\BaseEntity.class
+com\cony\data\jpa\repository\AbstractJpaRepository.class
+com\cony\data\jpa\repository\IDao.class
+com\cony\data\jpa\repository\AbstractTreeJpaRepository.class
+com\cony\data\jpa\repository\ITreeDao.class
+com\cony\data\jpa\entity\TreeEntity.class
+com\cony\data\jpa\repository\QueryBuilder.class

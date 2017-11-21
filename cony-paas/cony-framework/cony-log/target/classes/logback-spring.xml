@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <!-- 文件输出格式 -->
+    <property name="PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n" />
+    <!-- 时间戳定义，timeReference：使用日志产生日期为时间基准 -->
+    <timestamp key="byDay" datePattern="yyyy-MM-dd" timeReference="contextBirth" />
+     <!--开发环境 -->
+        <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+            <encoder>
+                <pattern>${PATTERN}</pattern>
+            </encoder>
+        </appender>
+        <!-- 每天产生一个文件 -->
+        <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+            <!-- 文件路径 -->
+            <file>${LOG_PATH}/${LOG_FILE}-${byDay}.log</file>
+            <filter class="com.cony.log.filter.BusinessLogFilter"/>
+            <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+                <fileNamePattern>${LOG_PATH}/${LOG_FILE}-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+                <!-- 控制归档文件的最大数量的保存，删除旧的文件，默认单位天数 -->
+                <maxHistory>30</maxHistory>
+                <!-- 设置当前日志的文件的大小，决定日志翻滚 -->
+                <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                    <!-- 除按日志记录之外，还配置了日志文件不能超过10M(默认)，若超过10M，日志文件会以索引0开始， -->
+                    <maxFileSize>100MB</maxFileSize>
+                </timeBasedFileNamingAndTriggeringPolicy>
+            </rollingPolicy>
+            <encoder>
+                <pattern>${PATTERN}
+                </pattern>
+            </encoder>
+        </appender>
+        <!--&lt;!&ndash;发送日志到logstash&ndash;&gt;-->
+        <!--<appender name="logstash" class="net.logstash.logback.appender.LogstashTcpSocketAppender">-->
+            <!--<filter class="com.glodon.coca.log.filter.DeployFilter"/>-->
+            <!--<remoteHost>192.168.65.40</remoteHost>-->
+            <!--<port>4560</port>-->
+            <!--&lt;!&ndash; encoder is required &ndash;&gt;-->
+            <!--<encoder>-->
+                <!--<pattern>${PATTERN}</pattern>-->
+            <!--</encoder>-->
+        <root level="info">
+            <appender-ref ref="CONSOLE" />
+            <appender-ref ref="FILE" />
+            <!--<appender-ref ref="logstash" />-->
+        </root>
+</configuration>
