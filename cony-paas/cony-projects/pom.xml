@@ -14,7 +14,7 @@
     <packaging>pom</packaging>
 
     <modules>
-
+        <module>cony-fss</module>
     </modules>
 
     <build>

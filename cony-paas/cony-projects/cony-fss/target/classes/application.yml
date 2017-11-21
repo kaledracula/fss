@@ -74,3 +74,11 @@ logging:
 #    username: wangkan
 #    password: wangkan
 #    publisher-confirms: true
+---
+# THYMELEAF
+spring:
+  thymeleaf:
+    prefix : classpath:/templates/
+    encoding : UTF-8
+    cache : false
+    mode : HTML5
