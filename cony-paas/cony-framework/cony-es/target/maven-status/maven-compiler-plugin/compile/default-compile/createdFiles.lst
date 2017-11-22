@@ -1,7 +1,0 @@
-com\cony\es\entity\ElasticSearchPage.class
-com\cony\es\entity\Article.class
-com\cony\es\config\ESearchTypeColumn.class
-com\cony\es\config\ElasticsearchConfiguration.class
-com\cony\es\repository\TransportClientRepository.class
-com\cony\es\service\ElasticsearchService.class
-com\cony\es\EsSampleApplication.class
