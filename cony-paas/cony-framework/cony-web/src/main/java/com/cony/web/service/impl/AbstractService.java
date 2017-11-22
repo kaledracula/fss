@@ -1,7 +1,9 @@
 package com.cony.web.service.impl;
 
 
+import com.cony.context.exception.BusinessException;
 import com.cony.data.common.exception.DataException;
+import com.cony.data.common.exception.DataNotFoundException;
 import com.cony.data.jpa.entity.BaseEntity;
 import com.cony.data.jpa.repository.IDao;
 import com.cony.web.service.IService;
@@ -32,7 +34,7 @@ import java.util.Map;
  * @author wangkan
  * @version 1.0
  */
-@Transactional(readOnly = true)
+@Transactional()
 public abstract class AbstractService<T extends BaseEntity, Dao extends IDao<T>> implements IService<T, Dao>, InitializingBean, ApplicationContextAware {
 
     /**
@@ -152,11 +154,9 @@ public abstract class AbstractService<T extends BaseEntity, Dao extends IDao<T>>
     @Override
     @Transactional()
     public T add(T entity) {
-        beforeAdd(entity);
         return getDao().add(entity);
     }
 
-    protected abstract void beforeAdd(T entity);
 
     /**
      * 批量保存。
@@ -166,11 +166,9 @@ public abstract class AbstractService<T extends BaseEntity, Dao extends IDao<T>>
     @Override
     @Transactional()
     public List<T> add(Collection<T> entities) {
-        beforeAdd(entities);
         return getDao().add(entities);
     }
 
-    protected abstract void beforeAdd(Collection<T> entities);
 
     /**
      * 更新当前实体类的一个实例。
@@ -181,11 +179,9 @@ public abstract class AbstractService<T extends BaseEntity, Dao extends IDao<T>>
     @Override
     @Transactional()
     public T update(T entity) throws NoSuchFieldException, IllegalAccessException {
-        beforeUpdate(entity);
         return getDao().update(entity);
     }
 
-    protected abstract void beforeUpdate(T entities);
 
     /**
      * 批量更新，用于批量更新列表指定的对象。
@@ -195,11 +191,9 @@ public abstract class AbstractService<T extends BaseEntity, Dao extends IDao<T>>
     @Override
     @Transactional()
     public List<T> update(Collection<T> entities) throws NoSuchFieldException, IllegalAccessException {
-        beforeUpdate(entities);
         return getDao().update(entities);
     }
 
-    protected abstract void beforeUpdate(Collection<T> entities);
 
     /**
      * 删除指定类型的域对象。
@@ -342,6 +336,27 @@ public abstract class AbstractService<T extends BaseEntity, Dao extends IDao<T>>
 
     }
 
+    /**
+     * 校验对象。
+     *
+     * @param entityList 指定要校验的对象
+     * @return 校验结果
+     */
+    public Boolean validateAll(List<T> entityList) {
+        if(entityList != null) {
+            StringBuilder result = new StringBuilder();
+            for(T entity : entityList) {
+                if(entity != null) {
+                    result.append(doValidate(entity));
+                }
+            }
+            if(!StringUtils.isEmpty(result.toString())) {
+                throw new BusinessException(result.toString());
+            }
+        }
+        return true;
+
+    }
     /**
      * 校验实体的具体实现。
      *

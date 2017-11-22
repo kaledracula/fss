@@ -18,26 +18,6 @@ import java.util.Map;
 public class SimpleFileService extends AbstractService<SimpleFile,ISimpleFileDao> implements ISimpleFileService {
 
     @Override
-    protected void beforeAdd(SimpleFile entity) {
-
-    }
-
-    @Override
-    protected void beforeAdd(Collection<SimpleFile> entities) {
-
-    }
-
-    @Override
-    protected void beforeUpdate(SimpleFile entities) {
-
-    }
-
-    @Override
-    protected void beforeUpdate(Collection<SimpleFile> entities) {
-
-    }
-
-    @Override
     protected String doValidate(SimpleFile entity) {
         return null;
     }

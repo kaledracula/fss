@@ -1,4 +1,3 @@
-com\cony\web\controller\ControllerValidatorInterceptor.class
 com\cony\web\exception\DefaultExceptionHandler.class
 com\cony\web\common\result\DefaultResult.class
 com\cony\web\common\consts\Consts.class

@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * Created by dongb-a on 2017/5/12.
  */
-@Transactional(readOnly=true)
+@Transactional()
 public abstract class AbstractTreeService<T extends TreeEntity, Dao extends ITreeDao<T>> extends AbstractService<T,Dao> implements ITreeService<T,Dao> {
 
     /**

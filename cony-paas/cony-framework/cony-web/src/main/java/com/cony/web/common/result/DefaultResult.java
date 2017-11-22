@@ -1,16 +1,19 @@
 package com.cony.web.common.result;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 /**
  * 返回值的默认实现
  *
  * @author wangkan
  */
+
 public class DefaultResult<T> implements Result<T> {
 
     private String code = ResponseMessage.Success.getCode();
-
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private String message = "success";
-
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private T data;
 
 

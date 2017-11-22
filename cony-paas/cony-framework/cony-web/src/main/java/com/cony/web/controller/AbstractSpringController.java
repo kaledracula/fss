@@ -17,6 +17,7 @@ import org.springframework.context.ApplicationContextAware;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
 import java.util.Map;
@@ -134,7 +135,7 @@ public class AbstractSpringController<T extends BaseEntity, Service extends ISer
      * @param id 域对象ID
      * @return Result<T>
      */
-    @RequestMapping(value = "/get/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public Result get(@PathVariable Long id) {
         return doGet(id);
     }
@@ -247,10 +248,8 @@ public class AbstractSpringController<T extends BaseEntity, Service extends ISer
      * @return Result
      */
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public Result add(@RequestBody T entity) {
-        doAdd(entity);
-        Result result = new DefaultResult();
-        return result;
+    public Result add(@Valid @RequestBody T entity) {
+        return new DefaultResult().setData(doAdd(entity));
     }
 
     /**
@@ -258,8 +257,11 @@ public class AbstractSpringController<T extends BaseEntity, Service extends ISer
      *
      * @param entity 域对象
      */
-    protected void doAdd(T entity) {
-        getService().add(entity);
+    protected T doAdd(T entity) {
+        if(getService().validate(entity)) {
+            return getService().add(entity);
+        }
+        return null;
     }
 
     /**
@@ -269,9 +271,8 @@ public class AbstractSpringController<T extends BaseEntity, Service extends ISer
      * @return Result
      */
     @RequestMapping(value = "/addAll", method = RequestMethod.POST)
-    public Result addAll(@RequestBody List<T> entities) {
-        doAddAll(entities);
-        return new DefaultResult();
+    public Result addAll(@Valid @RequestBody List<T> entities) {
+        return new DefaultResult().setData(doAddAll(entities));
     }
 
     /**
@@ -279,8 +280,11 @@ public class AbstractSpringController<T extends BaseEntity, Service extends ISer
      *
      * @param entities 域对象集合
      */
-    protected void doAddAll(List<T> entities) {
-        getService().add(entities);
+    protected List<T> doAddAll(List<T> entities) {
+        if(getService().validateAll(entities)) {
+           return getService().add(entities);
+        }
+        return  null;
     }
 
     /**
@@ -290,9 +294,9 @@ public class AbstractSpringController<T extends BaseEntity, Service extends ISer
      * @return Result
      */
     @RequestMapping(value = "/update", method = RequestMethod.PUT)
-    public Result update(@RequestBody T entity) throws NoSuchFieldException, IllegalAccessException {
-        doUpdate(entity);
-        return new DefaultResult();
+    public Result update(@Valid @RequestBody T entity) throws NoSuchFieldException, IllegalAccessException {
+
+        return new DefaultResult().setData(doUpdate(entity));
     }
 
     /**
@@ -300,8 +304,11 @@ public class AbstractSpringController<T extends BaseEntity, Service extends ISer
      *
      * @param entity 域对象
      */
-    protected void doUpdate(T entity) throws NoSuchFieldException, IllegalAccessException {
-        getService().update(entity);
+    protected T doUpdate(T entity) throws NoSuchFieldException, IllegalAccessException {
+        if(getService().validate(entity)) {
+            return getService().update(entity);
+        }
+        return null;
     }
 
     /**
@@ -311,9 +318,9 @@ public class AbstractSpringController<T extends BaseEntity, Service extends ISer
      * @return Result
      */
     @RequestMapping(value = "/updateAll", method = RequestMethod.PUT)
-    public Result updateAll(@RequestBody List<T> entities) throws NoSuchFieldException, IllegalAccessException {
-        doUpdateAll(entities);
-        return new DefaultResult();
+    public Result updateAll(@Valid @RequestBody List<T> entities) throws NoSuchFieldException, IllegalAccessException {
+
+        return new DefaultResult().setData( doUpdateAll(entities));
     }
 
     /**
@@ -321,8 +328,11 @@ public class AbstractSpringController<T extends BaseEntity, Service extends ISer
      *
      * @param entities 域对象集合
      */
-    protected void doUpdateAll(List<T> entities) throws NoSuchFieldException, IllegalAccessException {
-        getService().update(entities);
+    protected List<T> doUpdateAll(List<T> entities) throws NoSuchFieldException, IllegalAccessException {
+        if(getService().validateAll(entities)) {
+            return getService().update(entities);
+        }
+        return null;
     }
 
     /**
@@ -331,7 +341,7 @@ public class AbstractSpringController<T extends BaseEntity, Service extends ISer
      * @param id 域对象ID
      * @return Result
      */
-    @RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     public Result delete(@PathVariable Long id) {
         doDelete(id);
         return new DefaultResult();
@@ -373,7 +383,7 @@ public class AbstractSpringController<T extends BaseEntity, Service extends ISer
      * @param entity 域对象
      */
     @RequestMapping(value = "/validate", method = RequestMethod.POST)
-    public Result validate(@RequestBody T entity) {
+    public Result validate(@Valid @RequestBody T entity) {
         return new DefaultResult();
     }
 
@@ -383,19 +393,8 @@ public class AbstractSpringController<T extends BaseEntity, Service extends ISer
      * @param entities 域对象集合
      */
     @RequestMapping(value = "/validateAll", method = RequestMethod.POST)
-    public Result validateAll(@RequestBody List<T> entities) {
+    public Result validateAll(@Valid @RequestBody List<T> entities) {
         return new DefaultResult();
-    }
-
-    protected boolean isNullOrEmpty(Map<String, ?> params, String key) {
-        if (params == null) {
-            return true;
-        }
-        Object value = params.get(key);
-        if (value instanceof String) {
-            return value == null || "".equals(value);
-        }
-        return value == null;
     }
 
 }

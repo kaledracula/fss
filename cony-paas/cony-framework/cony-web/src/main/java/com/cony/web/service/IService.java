@@ -168,6 +168,13 @@ public interface IService<T extends BaseEntity, D extends IDao<T>> {
      */
     Boolean validate(T entity);
 
+    /**
+     * 校验对象。
+     *
+     * @param entityList 指定要校验的对象
+     * @return 校验结果
+     */
+    Boolean validateAll(List<T> entityList);
 
 
 }
