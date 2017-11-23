@@ -15,6 +15,7 @@
 
     <modules>
         <module>cony-fss</module>
+        <module>cony-fss-WeChat</module>
     </modules>
 
     <build>

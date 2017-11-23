@@ -22,6 +22,7 @@
     <modules>
         <module>cony-framework</module>
         <module>cony-projects</module>
+        <module>cony-services</module>
     </modules>
 
 

@@ -341,7 +341,7 @@ public class AbstractSpringController<T extends BaseEntity, Service extends ISer
      * @param id 域对象ID
      * @return Result
      */
-    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
     public Result delete(@PathVariable Long id) {
         doDelete(id);
         return new DefaultResult();

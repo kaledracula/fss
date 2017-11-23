@@ -14,5 +14,10 @@
     <file url="file://$PROJECT_DIR$/cony-framework/cony-web" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cony-projects" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cony-projects/cony-fss" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cony-projects/cony-fss-WeChat" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cony-servers" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cony-servers/cony-discovery" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cony-services" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cony-services/cony-codeGenerator-service" charset="UTF-8" />
   </component>
 </project>

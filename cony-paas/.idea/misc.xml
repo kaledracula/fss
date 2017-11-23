@@ -16,7 +16,18 @@
         <option value="$PROJECT_DIR$/cony-framework/cony-mq/pom.xml" />
         <option value="$PROJECT_DIR$/cony-projects/pom.xml" />
         <option value="$PROJECT_DIR$/cony-projects/cony-fss/pom.xml" />
+        <option value="$PROJECT_DIR$/cony-services/pom.xml" />
+        <option value="$PROJECT_DIR$/cony-services/cony-codeGenerator-service/pom.xml" />
+        <option value="$PROJECT_DIR$/cony-projects/cony-fss-WeChat/pom.xml" />
+        <option value="$PROJECT_DIR$/cony-servers/pom.xml" />
+        <option value="$PROJECT_DIR$/cony-servers/cony-discovery/pom.xml" />
+        <option value="$PROJECT_DIR$/cony-servers/cony-gateway/pom.xml" />
       </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/cony-servers/pom.xml" />
+      </set>
     </option>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_3" default="false" project-jdk-name="1.8" project-jdk-type="JavaSDK" />

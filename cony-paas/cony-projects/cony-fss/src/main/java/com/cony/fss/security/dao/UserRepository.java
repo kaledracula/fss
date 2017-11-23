@@ -4,6 +4,7 @@ import com.cony.data.jpa.repository.AbstractJpaRepository;
 import com.cony.data.jpa.repository.QueryBuilder;
 import com.cony.fss.security.entity.User;
 import org.springframework.stereotype.Repository;
+import org.springframework.util.StringUtils;
 
 import java.util.Map;
 
@@ -15,6 +16,12 @@ public class UserRepository extends AbstractJpaRepository<User> implements IUser
 
     @Override
     protected void bindQueryBuilderWithParams(Map<String, ?> params, QueryBuilder queryBuilder) {
-
+        if (params != null) {
+            if (params.containsKey("username")) {
+                if (StringUtils.isEmpty(params.get("username"))) {
+                    queryBuilder.eq("username",params.get("username"));
+                }
+            }
+        }
     }
 }
