@@ -21,13 +21,18 @@ public class CodeGenerateUtils {
                 String module = entry.getKey();
                 String[] fileNames = entry.getValue();
                 for (int i = 0; i < fileNames.length; i++) {
-                    //生成服务层接口文件
                     String fileName = fileNames[i];
+                    //生成数据层接口文件
+                    generateDaoInterfaceFile(fileName,module);
+                    //生成服务实现层文件
+                    generateDaoFile(fileName,module);
+                    //生成服务层接口文件
                     generateServiceInterfaceFile(fileName,module);
                     //生成服务实现层文件
                     generateServiceImplFile(fileName,module);
                     //生成Controller层文件
                     generateControllerFile(fileName,module);
+
                 }
             }
 
@@ -45,7 +50,7 @@ public class CodeGenerateUtils {
     }
 
     private void generateServiceImplFile(String fileName,String module) throws Exception{
-        final String suffix = "Service.java";
+        final String suffix = "ServiceImpl.java";
         final String path = diskPath + fileName + suffix;
         final String templateName = "Service.ftl";
         File mapperFile = new File(path);
@@ -67,6 +72,28 @@ public class CodeGenerateUtils {
         generateFileByTemplate(templateName,mapperFile,dataMap);
     }
 
+    private void generateDaoInterfaceFile(String fileName,String module) throws Exception{
+        final String prefix = "I";
+        final String suffix = "Dao.java";
+        final String path = diskPath + prefix + fileName + suffix;
+        final String templateName = "DaoInterface.ftl";
+        File mapperFile = new File(path);
+        Map<String,Object> dataMap = new HashMap<>();
+        dataMap.put("table_name",fileName);
+        dataMap.put("package_name",package_name+ module);
+        generateFileByTemplate(templateName,mapperFile,dataMap);
+    }
+
+    private void generateDaoFile(String fileName,String module) throws Exception{
+        final String suffix = "Repository.java";
+        final String path = diskPath  + fileName + suffix;
+        final String templateName = "Dao.ftl";
+        File mapperFile = new File(path);
+        Map<String,Object> dataMap = new HashMap<>();
+        dataMap.put("table_name",fileName);
+        dataMap.put("package_name",package_name+ module);
+        generateFileByTemplate(templateName,mapperFile,dataMap);
+    }
 
 
     private void generateFileByTemplate(final String templateName,File file,Map<String,Object> dataMap) throws Exception{

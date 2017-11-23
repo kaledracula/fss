@@ -6,10 +6,11 @@ import com.cony.web.service.impl.AbstractService;
 import org.springframework.stereotype.Service;
 
 /**
- * Created by wangk-p on 2017/11/22.
- */
+* 描述：Role 服务实现层
+*/
 @Service
 public class RoleServiceImpl extends AbstractService<Role,IRoleDao> implements IRoleService{
+
     @Override
     protected String doValidate(Role entity) {
         return null;

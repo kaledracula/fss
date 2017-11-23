@@ -5,7 +5,8 @@ import com.cony.fss.security.entity.Role;
 import com.cony.web.service.IService;
 
 /**
- * Created by wangk-p on 2017/11/22.
- */
+* 描述：Role 服务实现层接口
+*/
 public interface IRoleService extends IService<Role,IRoleDao> {
+
 }
