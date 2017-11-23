@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 
 @Controller
-@Api(value = "MainController", description = "主入口")
+@Api(value = "MainController", description = "Main API")
 public class MainController {
 
     @RequestMapping(value = "/login")
@@ -36,7 +36,7 @@ public class MainController {
     }
 
     @RequestMapping(value = "/403")
-    public String accesssDenied() {
+    public String accessDenied() {
         return "403";
     }
 

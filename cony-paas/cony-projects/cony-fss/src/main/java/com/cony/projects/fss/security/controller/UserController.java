@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/user")
-@Api(value = "UserController", description = "用户接口")
+@Api(value = "UserController", description = "User API")
 public class UserController extends AbstractSpringController<User,IUserService> {
 
 }
