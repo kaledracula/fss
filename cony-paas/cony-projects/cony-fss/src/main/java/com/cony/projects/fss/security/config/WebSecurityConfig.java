@@ -4,17 +4,25 @@ import com.cony.projects.fss.security.service.UserLoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
+
+import javax.sql.DataSource;
 
 /**
  * Created by wangk-p on 2017/11/21.
  */
 @EnableWebSecurity
+@EnableGlobalMethodSecurity(prePostEnabled = true) // 启用方法安全设置
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
+    @Autowired
+    private DataSource dataSource;
     /**
      * 自定义配置
      */
@@ -31,7 +39,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 //                .and()
 //                .exceptionHandling().accessDeniedPage("/403")
 //                .and()
-//                .logout().permitAll().logoutSuccessUrl("/login");
+//                .logout().permitAll().logoutSuccessUrl("/login")
+//                .and()
+//                .rememberMe()
+//                .tokenValiditySeconds(1209600)
+//                //指定记住登录信息所使用的数据源
+//                .tokenRepository(tokenRepository());
     }
 
     /**
@@ -42,6 +55,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         return new UserLoginService();
     }
 
+    @Bean
+    public JdbcTokenRepositoryImpl tokenRepository(){
+        JdbcTokenRepositoryImpl j=new JdbcTokenRepositoryImpl();
+        j.setDataSource(dataSource);
+        return j;
+    }
+
     /**
      * 认证信息管理
      * @param auth
@@ -49,6 +69,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
      */
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+        auth.eraseCredentials(false);
         auth.userDetailsService(userLoginService());
     }
 }
