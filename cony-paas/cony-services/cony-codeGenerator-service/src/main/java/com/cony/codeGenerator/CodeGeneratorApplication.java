@@ -13,8 +13,8 @@ public class CodeGeneratorApplication {
     private static final String  basePackage = "com.cony.projects.fss.";
     public static Map<String,String[]> getObjects() {
         Map<String,String[]> map = new HashMap<>();
-        String[] fileNames = {"Role"};
-        map.put("security",fileNames);
+        String[] fileNames = {"Driver"};
+        map.put("basic",fileNames);
         return map;
     }
 
