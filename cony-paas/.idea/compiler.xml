@@ -11,12 +11,10 @@
         <module name="cony-data-common" />
         <module name="cony-data-jpa" />
         <module name="cony-data-mybatis" />
-        <module name="cony-discovery" />
         <module name="cony-es" />
         <module name="cony-file" />
         <module name="cony-fss" />
         <module name="cony-fss-WeChat" />
-        <module name="cony-gateway" />
         <module name="cony-log" />
         <module name="cony-mq" />
         <module name="cony-web" />
