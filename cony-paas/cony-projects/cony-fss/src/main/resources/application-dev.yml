@@ -1,0 +1,14 @@
+#开发配置
+server:
+  port: 8080
+  tomcat:
+    uri-encoding: UTF-8
+---
+logging:
+  config: classpath:logback-spring.xml
+  file: fss
+  path: D:/fss/logs
+---
+fileTransfer:
+  root: d:\download
+  temp: d:\tmp

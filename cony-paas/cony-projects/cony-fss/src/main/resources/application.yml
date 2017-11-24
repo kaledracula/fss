@@ -1,9 +1,6 @@
-#开发配置
-server:
-  port: 8080
-  tomcat:
-    uri-encoding: UTF-8
 spring:
+  profiles:
+    active: prod
   application:
     name: fss
   datasource:
@@ -31,21 +28,17 @@ spring:
     multipart:
       max-file-size: 10Mb
       max-request-size: 50Mb
----
-fileTransfer:
-    root: d:\download
-    temp: d:\tmp
+  thymeleaf:
+    prefix : classpath:/templates/
+    encoding : UTF-8
+    cache : false
+    mode : HTML5
 ---
 mybatis:
   config-location: classpath:mybatis-config.xml
 pagehelper:
   auto-dialect: true
   close-conn: true
----
-logging:
-  config: classpath:logback-spring.xml
-  file: fss
-  path: D:/fss/logs
 #  level:
 #    com.glodon.coca.services.iot.mapper.TowerDataMapper : DEBUG
 #---
@@ -74,11 +67,4 @@ logging:
 #    username: wangkan
 #    password: wangkan
 #    publisher-confirms: true
----
-# THYMELEAF
-spring:
-  thymeleaf:
-    prefix : classpath:/templates/
-    encoding : UTF-8
-    cache : false
-    mode : HTML5
+
