@@ -49,6 +49,7 @@ public class BaseEntity implements Serializable {
 
     @LastModifiedDate
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
+    @JsonIgnore
     public Date getUpdateTime() {
         return updateTime;
     }
