@@ -1,0 +1,24 @@
+{
+  "name": "mmcbmds",
+  "description": "all component",
+  "main": "component",
+  "authors": [
+    "yuqiang"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "component"
+  ],
+  "homepage": "http://gitlab.maimaiche.com/mmc_comb/",
+  "private": true,
+  "dependencies": {
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "./",
+    "test",
+    "tests"
+  ]
+}

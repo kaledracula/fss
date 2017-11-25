@@ -1,0 +1,5 @@
+{
+    "registry": "http://comb.maimaiche.com/",
+    "timeout": 30000,
+    "directory": "./src/static/component"
+}
