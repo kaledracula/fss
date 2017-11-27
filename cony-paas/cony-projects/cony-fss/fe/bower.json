@@ -3,13 +3,13 @@
   "description": "all component",
   "main": "component",
   "authors": [
-    "yuqiang"
+    "xiangdan"
   ],
   "license": "MIT",
   "keywords": [
     "component"
   ],
-  "homepage": "http://gitlab.maimaiche.com/mmc_comb/",
+  "homepage": "https://github.com/kaledracula/fss/tree/master/cony-paas/cony-projects/cony-fss",
   "private": true,
   "dependencies": {
   },

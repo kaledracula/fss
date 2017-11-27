@@ -2,7 +2,7 @@
   "name": "fe",
   "version": "1.0.0",
   "description": "A Vue.js project",
-  "author": "qiang.yu <qiang.yu@ucarinc.com>",
+  "author": "xiangdan",
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",

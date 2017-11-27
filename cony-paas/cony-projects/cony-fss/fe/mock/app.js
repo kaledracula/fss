@@ -397,7 +397,7 @@ let codesData = Mock.mock({
 
 
 module.exports = {
-    '/ucartemple/user/login': function (req, res) {
+    '/temple/user/login': function (req, res) {
         // const userItem = req.body;
         let result = true;
         // if (userItem.emailType == 'ucarinc' && userItem.username == 'admin' && userItem.password == 'admin') {
@@ -411,7 +411,7 @@ module.exports = {
         res.json(response)
     },
 
-    '/ucartemple/menu/treeList': function (req, res) {
+    '/temple/menu/treeList': function (req, res) {
         // const page = qs.parse(req.query);
         res.json({
             success: true,
