@@ -2,6 +2,7 @@ package com.cony.projects.fss.security.entity;
 
 import com.cony.data.jpa.entity.BaseEntity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
@@ -28,7 +29,7 @@ public class Role extends BaseEntity {
         this.name = name;
     }
 
-    @JsonIgnore
+    @JsonIgnoreProperties("roles")
     @ManyToMany(mappedBy="roles")
     public List<User> getUsers() {
         return users;

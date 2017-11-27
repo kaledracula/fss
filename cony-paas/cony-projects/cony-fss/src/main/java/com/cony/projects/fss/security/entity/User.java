@@ -1,6 +1,7 @@
 package com.cony.projects.fss.security.entity;
 
 import com.cony.data.jpa.entity.BaseEntity;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -73,6 +74,7 @@ public class User extends BaseEntity implements UserDetails {
         this.fixedPhone = fixedPhone;
     }
 
+    @JsonIgnoreProperties("users")
     @ManyToMany(cascade = {CascadeType.REFRESH},fetch = FetchType.EAGER)
     @JoinTable(
             name="role_user_relation",

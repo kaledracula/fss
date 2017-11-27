@@ -11,10 +11,11 @@ public class CodeGeneratorApplication {
     private static final String  diskPath = "F:\\fss\\cony-paas\\cony-services\\cony-codeGenerator-service\\src\\main\\java\\com\\cony\\code\\";
 
     private static final String  basePackage = "com.cony.projects.fss.";
+
     public static Map<String,String[]> getObjects() {
         Map<String,String[]> map = new HashMap<>();
-        String[] fileNames = {"Driver"};
-        map.put("basic",fileNames);
+        String[] fileNames = {"Menu"};
+        map.put("custom",fileNames);
         return map;
     }
 
