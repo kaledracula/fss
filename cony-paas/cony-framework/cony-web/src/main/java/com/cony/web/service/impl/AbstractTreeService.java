@@ -89,4 +89,19 @@ public abstract class AbstractTreeService<T extends TreeEntity, Dao extends ITre
         return getDao().isChild(son_id,parent_id);
     }
 
+    /**
+     * 获取节点名称路径
+     *
+     * @param id 查询对象ID
+     * @return string 名称路径
+     */
+    @Override
+    public String getAncientsNamePath(Long id) {
+        List<T> entityList = getDao().findAncients(id,true);
+        StringBuilder stringBuilder = new StringBuilder();
+        for(T entity : entityList) {
+            stringBuilder.append(entity.getName()).append("/");
+        }
+        return stringBuilder.substring(0,stringBuilder.length());
+    }
 }

@@ -64,5 +64,11 @@ public interface ITreeService<T extends TreeEntity, D extends ITreeDao<T>> exten
      * @return boolean 是否根节点
      */
     boolean isChild(Serializable son_id, Serializable parent_id);
-
+    /**
+     * 获取节点名称路径
+     *
+     * @param id 查询对象ID
+     * @return string 名称路径
+     */
+    String getAncientsNamePath(Long id);
 }

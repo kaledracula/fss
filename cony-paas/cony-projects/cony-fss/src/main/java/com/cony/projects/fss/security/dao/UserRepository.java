@@ -17,15 +17,11 @@ public class UserRepository extends AbstractJpaRepository<User> implements IUser
     @Override
     protected void bindQueryBuilderWithParams(Map<String, ?> params, QueryBuilder queryBuilder) {
         if (params != null) {
-            if (params.containsKey("username")) {
-                if (!StringUtils.isEmpty(params.get("username"))) {
+            if (!StringUtils.isEmpty(params.get("username"))) {
                     queryBuilder.like("username","%"+params.get("username")+"%");
-                }
             }
-            if (params.containsKey("name")) {
-                if (!StringUtils.isEmpty(params.get("name"))) {
+            if (!StringUtils.isEmpty(params.get("name"))) {
                     queryBuilder.like("name","%"+params.get("name")+"%");
-                }
             }
         }
     }

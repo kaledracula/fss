@@ -15,6 +15,8 @@ public class TreeEntity extends BaseEntity {
 
     private Long od;
 
+    private String name;
+
     public String getTreePath() {
         return treePath;
     }
@@ -37,5 +39,13 @@ public class TreeEntity extends BaseEntity {
 
     public void setOd(Long od) {
         this.od = od;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

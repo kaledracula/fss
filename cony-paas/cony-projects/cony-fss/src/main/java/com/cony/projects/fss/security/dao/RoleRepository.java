@@ -9,18 +9,16 @@ import org.springframework.util.StringUtils;
 import java.util.Map;
 
 /**
-* 描述：Role 数据层实现
-*/
+ * 描述：Role 数据层实现
+ */
 @Repository
-public class RoleRepository  extends AbstractJpaRepository<Role> implements IRoleDao{
+public class RoleRepository extends AbstractJpaRepository<Role> implements IRoleDao {
 
     @Override
     protected void bindQueryBuilderWithParams(Map<String, ?> params, QueryBuilder queryBuilder) {
         if (params != null) {
-            if (params.containsKey("name")) {
-                if (!StringUtils.isEmpty(params.get("name"))) {
-                    queryBuilder.like("name","%"+params.get("name")+"%");
-                }
+            if (!StringUtils.isEmpty(params.get("name"))) {
+                queryBuilder.like("name", "%" + params.get("name") + "%");
             }
         }
     }
