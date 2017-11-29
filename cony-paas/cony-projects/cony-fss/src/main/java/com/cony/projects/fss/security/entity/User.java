@@ -58,6 +58,7 @@ public class User extends BaseEntity implements UserDetails {
         this.password = password;
     }
 
+    @NotNull(message = "手机号码不能为空！")
     public Long getMobilePhone() {
         return mobilePhone;
     }

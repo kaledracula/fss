@@ -19,7 +19,7 @@
         <module>cony-data-mybatis</module>
         <module>cony-web</module>
         <module>cony-file</module>
-        <module>cony-es</module>
+        <module>cony-data-es</module>
         <module>cony-log</module>
         <module>cony-mq</module>
     </modules>

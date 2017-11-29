@@ -9,8 +9,20 @@
         <input type="text" id="username" name="username" value="" placeholder="账号"/><br/>
         <label>密码</label>
         <input type="password" id="password" name="password" placeholder="密码"/><br/>
+        <label>验证码</label>
+        <input type="text" id="username" name="username" value="" placeholder="账号"/>
+        <img src="/verifyCodeServlet" align="middle" title="看不清，请点我"  onclick="javascript:refresh(this);" onmouseover="mouseover(this)"/><br/>
         <label><input type="checkbox" id="rememberme" name="remember-me"/>记住我</label>
         <input type="submit" id="login" value="Login"/>
 </form>
 </body>
+<script>
+    function refresh(obj){
+        obj.src = "VerifyCodeServlet?" + Math.random();
+    }
+
+    function mouseover(obj){
+        obj.style.cursor = "pointer";
+    }
+</script>
 </html>

@@ -1,4 +1,4 @@
-package com.cony.projects.fssWC.sms;
+package com.cony.projects.fss.sms;
 
 import com.aliyuncs.DefaultAcsClient;
 import com.aliyuncs.IAcsClient;
