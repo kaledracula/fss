@@ -5,6 +5,7 @@ package com.cony.log.constant;
  */
 public class LogConstants {
 
-    public static final String BusinessLog = "BusinessLogFilter:";
-    public static final String ErrorLog = "ErrorLog:";
+    public static final String DeployLog = "DeployLog:";
+    public static final String ErrorLog = "Error:";
+    public static final String BusinessLog = "BusinessLog:";
 }

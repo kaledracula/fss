@@ -11,26 +11,45 @@
             </encoder>
         </appender>
         <!-- 每天产生一个文件 -->
-        <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-            <!-- 文件路径 -->
-            <file>${LOG_PATH}/${LOG_FILE}-${byDay}.log</file>
-            <filter class="com.cony.log.filter.BusinessLogFilter"/>
-            <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-                <fileNamePattern>${LOG_PATH}/${LOG_FILE}-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
-                <!-- 控制归档文件的最大数量的保存，删除旧的文件，默认单位天数 -->
-                <maxHistory>30</maxHistory>
-                <!-- 设置当前日志的文件的大小，决定日志翻滚 -->
-                <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
-                    <!-- 除按日志记录之外，还配置了日志文件不能超过10M(默认)，若超过10M，日志文件会以索引0开始， -->
-                    <maxFileSize>100MB</maxFileSize>
-                </timeBasedFileNamingAndTriggeringPolicy>
-            </rollingPolicy>
-            <encoder>
-                <pattern>${PATTERN}
-                </pattern>
-            </encoder>
-        </appender>
-        <!--&lt;!&ndash;发送日志到logstash&ndash;&gt;-->
+        <!--<appender name="BFILE" class="ch.qos.logback.core.rolling.RollingFileAppender">-->
+            <!--&lt;!&ndash; 文件路径 &ndash;&gt;-->
+            <!--<file>${LOG_PATH}/${LOG_FILE}-business-${byDay}.log</file>-->
+            <!--<filter class="com.cony.log.filter.BusinessLogFilter"/>-->
+            <!--<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">-->
+                <!--<fileNamePattern>${LOG_PATH}/${LOG_FILE}-business-%d{yyyy-MM-dd}.%i.log</fileNamePattern>-->
+                <!--&lt;!&ndash; 控制归档文件的最大数量的保存，删除旧的文件，默认单位天数 &ndash;&gt;-->
+                <!--<maxHistory>30</maxHistory>-->
+                <!--&lt;!&ndash; 设置当前日志的文件的大小，决定日志翻滚 &ndash;&gt;-->
+                <!--<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">-->
+                    <!--&lt;!&ndash; 除按日志记录之外，还配置了日志文件不能超过10M(默认)，若超过10M，日志文件会以索引0开始， &ndash;&gt;-->
+                    <!--<maxFileSize>100MB</maxFileSize>-->
+                <!--</timeBasedFileNamingAndTriggeringPolicy>-->
+            <!--</rollingPolicy>-->
+            <!--<encoder>-->
+                <!--<pattern>${PATTERN}-->
+                <!--</pattern>-->
+            <!--</encoder>-->
+        <!--</appender>-->
+        <!--<appender name="EFILE" class="ch.qos.logback.core.rolling.RollingFileAppender">-->
+            <!--&lt;!&ndash; 文件路径 &ndash;&gt;-->
+            <!--<file>${LOG_PATH}/${LOG_FILE}-error-${byDay}.log</file>-->
+            <!--<filter class="com.cony.log.filter.ErrorLogFilter"/>-->
+            <!--<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">-->
+                <!--<fileNamePattern>${LOG_PATH}/${LOG_FILE}-error-%d{yyyy-MM-dd}.%i.log</fileNamePattern>-->
+                <!--&lt;!&ndash; 控制归档文件的最大数量的保存，删除旧的文件，默认单位天数 &ndash;&gt;-->
+                <!--<maxHistory>30</maxHistory>-->
+                <!--&lt;!&ndash; 设置当前日志的文件的大小，决定日志翻滚 &ndash;&gt;-->
+                <!--<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">-->
+                    <!--&lt;!&ndash; 除按日志记录之外，还配置了日志文件不能超过10M(默认)，若超过10M，日志文件会以索引0开始， &ndash;&gt;-->
+                    <!--<maxFileSize>100MB</maxFileSize>-->
+                <!--</timeBasedFileNamingAndTriggeringPolicy>-->
+            <!--</rollingPolicy>-->
+            <!--<encoder>-->
+                <!--<pattern>${PATTERN}-->
+                <!--</pattern>-->
+            <!--</encoder>-->
+        <!--</appender>-->
+        <!--发送日志到logstash-->
         <!--<appender name="logstash" class="net.logstash.logback.appender.LogstashTcpSocketAppender">-->
             <!--<filter class="com.glodon.coca.log.filter.DeployFilter"/>-->
             <!--<remoteHost>192.168.65.40</remoteHost>-->
@@ -39,9 +58,10 @@
             <!--<encoder>-->
                 <!--<pattern>${PATTERN}</pattern>-->
             <!--</encoder>-->
+        <!--</appender>-->
         <root level="info">
             <appender-ref ref="CONSOLE" />
-            <appender-ref ref="FILE" />
+            <!--<appender-ref ref="FILE" />-->
             <!--<appender-ref ref="logstash" />-->
         </root>
 </configuration>

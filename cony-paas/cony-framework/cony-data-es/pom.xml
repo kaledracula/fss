@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>coca-data-es</artifactId>
+    <artifactId>cony-data-es</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <dependencies>

@@ -5,20 +5,20 @@
 </head>
 <body>
 <form role="form" name="form" action="/login" method="post">
-        <label>账号</label>
-        <input type="text" id="username" name="username" value="" placeholder="账号"/><br/>
-        <label>密码</label>
+        <label>账  号</label>
+        <input type="text" id="username" name="username" value="" placeholder="手机号"/><br/>
+        <label>密  码</label>
         <input type="password" id="password" name="password" placeholder="密码"/><br/>
         <label>验证码</label>
-        <input type="text" id="username" name="username" value="" placeholder="账号"/>
+        <input type="text" id="picCode" name="picCode" value="" placeholder="验证码"/>
         <img src="/verifyCodeServlet" align="middle" title="看不清，请点我"  onclick="javascript:refresh(this);" onmouseover="mouseover(this)"/><br/>
-        <label><input type="checkbox" id="rememberme" name="remember-me"/>记住我</label>
+        <label><input type="checkbox" id="rememberme" name="remember-me"/>记住我</label></br>
         <input type="submit" id="login" value="Login"/>
 </form>
 </body>
 <script>
     function refresh(obj){
-        obj.src = "VerifyCodeServlet?" + Math.random();
+        obj.src = "/verifyCodeServlet?" + Math.random();
     }
 
     function mouseover(obj){
