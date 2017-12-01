@@ -1,5 +1,6 @@
 package com.cony.security.config;
 
+import com.cony.context.utils.IgnoreDuringScan;
 import com.cony.security.filter.FssValidateFilter;
 import com.cony.security.service.UserLoginService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,7 @@ import javax.sql.DataSource;
  * Created by wangk-p on 2017/11/30.
  */
 @Configuration
+@IgnoreDuringScan
 public class FssSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Autowired

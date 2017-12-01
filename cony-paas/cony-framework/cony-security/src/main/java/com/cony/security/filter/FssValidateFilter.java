@@ -1,6 +1,7 @@
 package com.cony.security.filter;
 
 import com.cony.context.exception.BusinessException;
+import com.cony.context.utils.IgnoreDuringScan;
 import com.cony.security.cache.PhoneCache;
 import com.cony.security.util.ValidateCodeUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,7 @@ import java.io.IOException;
  * Created by wangk-p on 2017/12/1.
  */
 @Component
+@IgnoreDuringScan
 public class FssValidateFilter extends OncePerRequestFilter {
     @Autowired
     private PhoneCache phoneCache;
