@@ -97,7 +97,7 @@ public class Custom extends BaseEntity {
     public PackageTime getPackageTime() {
         return packageTime;
     }
-
+    @Column(columnDefinition="TEXT")
     public String getRemark() {
         return remark;
     }

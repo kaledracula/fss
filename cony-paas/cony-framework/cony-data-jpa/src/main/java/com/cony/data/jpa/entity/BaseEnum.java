@@ -12,4 +12,6 @@ public interface BaseEnum {
     int getKey();
 
     String getValue();
+
+
 }

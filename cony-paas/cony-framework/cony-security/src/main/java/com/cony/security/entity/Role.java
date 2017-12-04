@@ -2,6 +2,7 @@ package com.cony.security.entity;
 
 import com.cony.data.jpa.entity.BaseEntity;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
@@ -20,6 +21,7 @@ public class Role extends BaseEntity {
     private List<User> users = new ArrayList<>();
 
     @NotNull(message = "角色名称不能为空！")
+    @Length(max = 255)
     public String getName() {
         return name;
     }

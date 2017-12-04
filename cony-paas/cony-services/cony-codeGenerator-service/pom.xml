@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>coca-codeGenerator-service</artifactId>
+    <artifactId>cony-codeGenerator-service</artifactId>
 
     <dependencies>
         <dependency>

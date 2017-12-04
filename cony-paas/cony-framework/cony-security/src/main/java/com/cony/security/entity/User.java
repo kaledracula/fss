@@ -2,12 +2,14 @@ package com.cony.security.entity;
 
 import com.cony.data.jpa.entity.BaseEntity;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.hibernate.validator.constraints.Length;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -31,6 +33,7 @@ public class User extends BaseEntity implements UserDetails {
     private List<Role> roles = new ArrayList<>();
 
     @NotNull(message = "姓名不能为空！")
+    @Length(max = 255)
     public String getName() {
         return name;
     }
@@ -40,15 +43,19 @@ public class User extends BaseEntity implements UserDetails {
     }
 
     @NotNull(message = "用户名不能为空！")
+    @Length(min = 11,max = 11)
+    @Pattern(regexp = "^((1[3,5,8][0-9])|(14[5,7])|(17[0,6,7,8])|(19[7]))\\d{8}$",message = "手机号格式不对，请重新输入！")
     @Override
     public String getUsername() {
         return username;
     }
+
     public void setUsername(String username) {
         this.username = username;
     }
 
     @NotNull(message = "密码不能为空！")
+    @Length(max = 255)
     @Override
     public String getPassword() {
         return password;
@@ -59,6 +66,7 @@ public class User extends BaseEntity implements UserDetails {
     }
 
     @NotNull(message = "手机号码不能为空！")
+    @Length(min=11,max = 11)
     public Long getMobilePhone() {
         return mobilePhone;
     }

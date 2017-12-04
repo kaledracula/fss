@@ -9,16 +9,18 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 /**
- * Created by wangk-p on 2017/11/23.
+ * Created by wangk-p on 2017/12/4.
  */
 @Entity
-public class Collector extends BaseEntity {
+public class Salesman extends BaseEntity{
 
     private String code;
 
     private String name;
 
     private Long mobilePhone;
+
+    private MarketGroup marketGroup;
 
     private ActiveStatus status;
 
@@ -41,6 +43,14 @@ public class Collector extends BaseEntity {
         return mobilePhone;
     }
 
+    @JsonIgnoreProperties("salesmen")
+    @NotNull(message = "市场组不能为空！")
+    @ManyToOne
+    @JoinColumn(name = "market_group_id")
+    public MarketGroup getMarketGroup() {
+        return marketGroup;
+    }
+
     @Enumerated
     @NotNull(message = "状态不能为空！")
     public ActiveStatus getStatus() {
@@ -60,6 +70,10 @@ public class Collector extends BaseEntity {
         this.mobilePhone = mobilePhone;
     }
 
+    public void setMarketGroup(MarketGroup marketGroup) {
+        this.marketGroup = marketGroup;
+    }
+
     public void setStatus(ActiveStatus status) {
         this.status = status;
     }
@@ -71,5 +85,4 @@ public class Collector extends BaseEntity {
     public void setCode(String code) {
         this.code = code;
     }
-
 }

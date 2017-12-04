@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 * 描述：Driver控制层
 */
 @RestController
-@RequestMapping("/driver")
+@RequestMapping("/api/basic/driver")
 @Api(value = "DriverController", description = "Driver API")
 public class DriverController extends AbstractSpringController<Driver,IDriverService> {
 
