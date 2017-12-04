@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 * 描述：${table_name}控制层
 */
 @RestController
-@RequestMapping("/${table_name?uncap_first}")
+@RequestMapping("/api/${module}/${table_name?uncap_first}")
 @Api(value = "${table_name}Controller", description = "${table_name} API")
 public class ${table_name}Controller extends AbstractSpringController<${table_name},I${table_name}Service> {
 

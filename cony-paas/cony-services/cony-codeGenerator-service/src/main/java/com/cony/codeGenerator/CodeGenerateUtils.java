@@ -46,6 +46,7 @@ public class CodeGenerateUtils {
         Map<String,Object> dataMap = new HashMap<>();
         dataMap.put("table_name",fileName);
         dataMap.put("package_name",package_name+ module);
+        dataMap.put("module",module);
         generateFileByTemplate(templateName,mapperFile,dataMap);
     }
 

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 * 描述：Collector控制层
 */
 @RestController
-@RequestMapping("/collector")
+@RequestMapping("/api/basic/collector")
 @Api(value = "CollectorController", description = "Collector API")
 public class CollectorController extends AbstractSpringController<Collector,ICollectorService> {
 

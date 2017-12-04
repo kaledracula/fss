@@ -1,6 +1,9 @@
 
 SET FOREIGN_KEY_CHECKS=0;
 
+-- ----------------------------
+-- Table structure for `persistent_logins`
+-- ----------------------------
 CREATE TABLE `persistent_logins` (
   `username` varchar(64) NOT NULL,
   `series` varchar(64) NOT NULL,
