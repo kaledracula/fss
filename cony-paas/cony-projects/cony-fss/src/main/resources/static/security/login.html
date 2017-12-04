@@ -11,14 +11,14 @@
         <input type="password" id="password" name="password" placeholder="密码"/><br/>
         <label>验证码</label>
         <input type="text" id="picCode" name="picCode" value="" placeholder="验证码"/>
-        <img src="/verifyCodeServlet" align="middle" title="看不清，请点我"  onclick="javascript:refresh(this);" onmouseover="mouseover(this)"/><br/>
+        <img src="/api/security/verifyCodeServlet" align="middle" title="看不清，请点我"  onclick="javascript:refresh(this);" onmouseover="mouseover(this)"/><br/>
         <label><input type="checkbox" id="rememberme" name="remember-me"/>记住我</label></br>
         <input type="submit" id="login" value="Login"/>
 </form>
 </body>
 <script>
     function refresh(obj){
-        obj.src = "/verifyCodeServlet?" + Math.random();
+        obj.src = "/api/security/verifyCodeServlet?" + Math.random();
     }
 
     function mouseover(obj){

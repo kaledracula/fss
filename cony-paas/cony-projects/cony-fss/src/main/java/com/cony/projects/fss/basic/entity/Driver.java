@@ -58,7 +58,7 @@ public class Driver extends BaseEntity{
         return carType;
     }
 
-    @JsonIgnoreProperties("drivers")
+    @JsonIgnoreProperties({"drivers","salesmen","status","remark","distributionLocation"})
     @NotNull(message = "市场组不能为空！")
     @ManyToOne
     @JoinColumn(name = "market_group_id")

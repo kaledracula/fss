@@ -26,6 +26,8 @@ public class MarketGroup extends BaseEntity{
 
     private String remark;
 
+    private DistributionLocation distributionLocation;
+
     @NotNull(message = "名称不能为空！")
     @Length(max = 255)
     public String getName() {
@@ -73,5 +75,15 @@ public class MarketGroup extends BaseEntity{
 
     public void setRemark(String remark) {
         this.remark = remark;
+    }
+
+    @OneToOne(mappedBy = "marketGroup")
+    @JsonIgnoreProperties({"marketGroup","warehouse","status","remark"})
+    public DistributionLocation getDistributionLocation() {
+        return distributionLocation;
+    }
+
+    public void setDistributionLocation(DistributionLocation distributionLocation) {
+        this.distributionLocation = distributionLocation;
     }
 }

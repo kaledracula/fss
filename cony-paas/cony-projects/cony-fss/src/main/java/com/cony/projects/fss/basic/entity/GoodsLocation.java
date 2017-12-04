@@ -1,6 +1,7 @@
 package com.cony.projects.fss.basic.entity;
 
 import com.cony.data.jpa.entity.BaseEntity;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
@@ -28,6 +29,7 @@ public class GoodsLocation extends BaseEntity{
     @NotNull(message = "仓库不能为空！")
     @ManyToOne
     @JoinColumn(name = "warehouse_id")
+    @JsonIgnoreProperties({"status","remark"})
     public Warehouse getWarehouse() {
         return warehouse;
     }
@@ -52,6 +54,7 @@ public class GoodsLocation extends BaseEntity{
 
     @ManyToOne
     @JoinColumn(name = "collector_id")
+    @JsonIgnoreProperties({"status","remark","mobilePhone","code"})
     public Collector getCollector() {
         return collector;
     }

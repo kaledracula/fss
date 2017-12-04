@@ -44,7 +44,7 @@ public class Salesman extends BaseEntity{
         return mobilePhone;
     }
 
-    @JsonIgnoreProperties("salesmen")
+    @JsonIgnoreProperties({"drivers","salesmen","status","remark"})
     @NotNull(message = "市场组不能为空！")
     @ManyToOne
     @JoinColumn(name = "market_group_id")
