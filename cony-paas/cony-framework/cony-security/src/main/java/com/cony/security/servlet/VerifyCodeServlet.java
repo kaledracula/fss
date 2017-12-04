@@ -17,7 +17,7 @@ import java.util.Random;
  * @author Administrator
  *
  */
-@WebServlet(urlPatterns="/verifyCodeServlet")
+@WebServlet(urlPatterns="/api/security/verifyCodeServlet")
 public class VerifyCodeServlet extends HttpServlet {
 
     private static final long serialVersionUID = -5051097528828603895L;

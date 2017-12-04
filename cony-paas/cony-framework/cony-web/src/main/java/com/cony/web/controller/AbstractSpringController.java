@@ -4,6 +4,7 @@ package com.cony.web.controller;
 import com.cony.data.jpa.entity.BaseEntity;
 import com.cony.data.jpa.repository.IDao;
 import com.cony.web.common.consts.Consts;
+import com.cony.web.common.param.QueryParams;
 import com.cony.web.common.result.DefaultResult;
 import com.cony.web.common.result.Result;
 import com.cony.web.exception.DefaultExceptionHandler;
@@ -194,16 +195,14 @@ public class AbstractSpringController<T extends BaseEntity, Service extends ISer
     /**
      * 分页查询域对象，,子类复写doQueryForPage进行查询方法定制。
      *
-     * @param params 参数集合
+     * @param queryParams 参数集合
      *               域对象ID
      * @return Result
      */
     @RequestMapping(value = "/queryForPage", method = RequestMethod.POST)
     public Result queryForPage(
-            @RequestParam(value = "offSet", required = false, defaultValue = Consts.DEFAULT_OFFSET + "") int offSet,
-            @RequestParam(value = "pageSize", required = false, defaultValue = Consts.DEFAULT_PAGE_SIZE + "") int pageSize,
-            @RequestParam(required = false) Map<String, ? extends Object> params) {
-        return doQueryForPage(offSet, pageSize, params);
+            @Valid @RequestBody QueryParams queryParams) {
+        return doQueryForPage(queryParams.getOffSet(), queryParams.getPageSize(), queryParams.getParams());
     }
 
     /**
@@ -213,7 +212,7 @@ public class AbstractSpringController<T extends BaseEntity, Service extends ISer
      * @return Result 结果
      */
     @RequestMapping(value = "/query", method = RequestMethod.POST)
-    public Result query(@RequestParam(required = false) Map<String, ? extends Object> params) {
+    public Result query(@Valid @RequestBody(required = false) Map<String, ? extends Object> params) {
         return doQuery(params);
     }
 

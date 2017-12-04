@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
  * Created by wangk-p on 2017/11/22.
  */
 @RestController
-@RequestMapping("/role")
+@RequestMapping("/api/security/role")
 @Api(value = "RoleController", description = "Role API")
 public class RoleController extends AbstractSpringController<Role,IRoleService> {
 

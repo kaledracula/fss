@@ -30,7 +30,7 @@ import java.io.IOException;
  */
 
 @RestController()
-@RequestMapping("/main")
+@RequestMapping("/api/security/main")
 @Api(value = "MainController", description = "Main API")
 public class MainController {
 

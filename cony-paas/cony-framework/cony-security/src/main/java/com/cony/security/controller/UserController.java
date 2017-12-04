@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
  * Created by wangk-p on 2017/11/22.
  */
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/api/security/user")
 @Api(value = "UserController", description = "User API")
 public class UserController extends AbstractSpringController<User,IUserService> {
 

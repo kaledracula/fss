@@ -23,26 +23,26 @@ import javax.sql.DataSource;
 public class FssSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Autowired
-    private DataSource dataSource;
+    DataSource dataSource;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable();
         //  http.authorizeRequests().anyRequest().permitAll();
         http.authorizeRequests()
-                .antMatchers("/css/**", "/js/**", "/fonts/**", "/").permitAll()  // 都可以访问
-                .antMatchers("/security/**", "/main/**", "/verifyCodeServlet").permitAll()  // 都可以访问
+                .antMatchers("/css/**", "/js/**", "/fonts/**", "/","/security/**").permitAll()  // 都可以访问
+                .antMatchers("/api/security/main/**", "/api/security/verifyCodeServlet").permitAll()  // 都可以访问
                 .anyRequest().authenticated()
                 .and()
                 .addFilterBefore(fssValidateFilter(), UsernamePasswordAuthenticationFilter.class)
                 .formLogin()
                 .loginProcessingUrl("/login")
-                .loginPage("/main/toLogin")
-                .failureUrl("/main/login-error")
+                .loginPage("/api/security/main/toLogin")
+                .failureUrl("/api/security/main/login-error")
                 .and()
-                .exceptionHandling().accessDeniedPage("/main/403")
+                .exceptionHandling().accessDeniedPage("/api/security/main/403")
                 .and()
-                .logout().permitAll().logoutSuccessUrl("/main/toLogin")
+                .logout().permitAll().logoutSuccessUrl("/api/security/main/toLogin")
                 .and()
                 .rememberMe()
                 .tokenValiditySeconds(1209600)
