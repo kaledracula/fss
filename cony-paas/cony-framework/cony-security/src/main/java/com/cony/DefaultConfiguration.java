@@ -1,11 +1,8 @@
-package com.cony.web;
+package com.cony;
 
 import org.springframework.context.annotation.ComponentScan;
 
-/**
- * Created by luorh on 2016/11/26.
- */
-//@ComponentScan
+@ComponentScan
 public class DefaultConfiguration {
 
 }
