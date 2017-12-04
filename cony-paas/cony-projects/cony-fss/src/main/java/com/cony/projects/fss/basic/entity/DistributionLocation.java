@@ -21,8 +21,6 @@ public class DistributionLocation extends BaseEntity{
 
     private ActiveStatus status;
 
-    private Collector collector;
-
     private String remark;
 
     @NotNull(message = "仓库不能为空！")
@@ -51,11 +49,6 @@ public class DistributionLocation extends BaseEntity{
         return status;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "collector_id")
-    public Collector getCollector() {
-        return collector;
-    }
 
     @Column(columnDefinition="TEXT")
     public String getRemark() {
@@ -74,9 +67,6 @@ public class DistributionLocation extends BaseEntity{
         this.status = status;
     }
 
-    public void setCollector(Collector collector) {
-        this.collector = collector;
-    }
 
     public void setRemark(String remark) {
         this.remark = remark;

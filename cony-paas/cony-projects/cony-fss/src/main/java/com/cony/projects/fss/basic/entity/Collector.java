@@ -14,7 +14,7 @@ import javax.validation.constraints.Pattern;
 @Entity
 public class Collector extends BaseEntity {
 
-    private String code;
+    private Integer code;
 
     private String name;
 
@@ -24,7 +24,8 @@ public class Collector extends BaseEntity {
 
     private String remark;
 
-    public String getCode() {
+    @Column(columnDefinition = "int(7) UNSIGNED ZEROFILL NULL DEFAULT NULL")
+    public Integer getCode() {
         return code;
     }
 
@@ -68,7 +69,7 @@ public class Collector extends BaseEntity {
         this.remark = remark;
     }
 
-    public void setCode(String code) {
+    public void setCode(Integer code) {
         this.code = code;
     }
 
