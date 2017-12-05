@@ -6,6 +6,8 @@ import com.cony.security.entity.User;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.StringUtils;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -25,6 +27,12 @@ public class UserRepository extends AbstractJpaRepository<User> implements IUser
             }
             if (!StringUtils.isEmpty(params.get("mobilePhone"))) {
                 queryBuilder.eq("mobilePhone", params.get("mobilePhone"));
+            }
+            if (!StringUtils.isEmpty(params.get("loginName"))) {
+                List<String> fields = new ArrayList<>();
+                fields.add("mobilePhone");
+                fields.add("username");
+                queryBuilder.or(fields, params.get("loginName"));
             }
         }
     }

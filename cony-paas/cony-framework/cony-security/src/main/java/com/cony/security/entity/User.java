@@ -67,6 +67,7 @@ public class User extends BaseEntity implements UserDetails {
 
     @NotNull(message = "手机号码不能为空！")
     @Length(min=11,max = 11)
+    @Column(unique = true)
     public Long getMobilePhone() {
         return mobilePhone;
     }
