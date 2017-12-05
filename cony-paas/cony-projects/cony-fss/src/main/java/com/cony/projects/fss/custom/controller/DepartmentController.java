@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 * 描述：Department控制层
 */
 @RestController
-@RequestMapping("/department")
+@RequestMapping("/api/custom/department")
 @Api(value = "DepartmentController", description = "Department API")
 public class DepartmentController extends AbstractSpringController<Department,IDepartmentService> {
 

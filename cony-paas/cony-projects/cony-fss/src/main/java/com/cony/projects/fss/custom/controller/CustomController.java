@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 * 描述：Custom控制层
 */
 @RestController
-@RequestMapping("/custom")
+@RequestMapping("/api/custom")
 @Api(value = "CustomController", description = "Custom API")
 public class CustomController extends AbstractSpringController<Custom,ICustomService> {
 

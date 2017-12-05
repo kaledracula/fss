@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 * 描述：Category控制层
 */
 @RestController
-@RequestMapping("/category")
+@RequestMapping("/api/goods/category")
 @Api(value = "CategoryController", description = "Category API")
 public class CategoryController extends AbstractTreeSpringController<Category,ICategoryService> {
 

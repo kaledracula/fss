@@ -1,7 +1,9 @@
 package com.cony.projects.fss.custom.entity;
 
 import com.cony.data.jpa.entity.BaseEntity;
+import com.cony.projects.fss.basic.entity.Salesman;
 import com.cony.projects.fss.dictionary.entity.DictionaryItem;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.validator.constraints.Length;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -44,12 +46,16 @@ public class Custom extends BaseEntity {
 
     private List<Department> departments;//部门
 
+    private Salesman salesman;
+
     @NotNull(message = "客户名称不能为空！")
+    @Length(max = 255)
     public String getName() {
         return name;
     }
 
     @NotNull(message = "用户名不能为空！")
+    @Length(max = 255)
     public String getUsername() {
         return username;
     }
@@ -64,10 +70,12 @@ public class Custom extends BaseEntity {
         return mobilePhone;
     }
     @NotNull(message = "联系人不能为空！")
+    @Length(max = 255)
     public String getLinkman() {
         return linkman;
     }
     @NotNull(message = "地址不能为空！")
+    @Length(max = 255)
     public String getAddress() {
         return address;
     }
@@ -83,6 +91,7 @@ public class Custom extends BaseEntity {
     public CustomStatus getStatus() {
         return status;
     }
+
     @NotNull(message = "类型不能为空！")
     @ManyToOne
     @JoinColumn(name = "type_dic_item_id")
@@ -90,10 +99,12 @@ public class Custom extends BaseEntity {
         return type;
     }
     @NotNull(message = "打印类型不能为空！")
+    @Enumerated
     public PrintType getPrintType() {
         return printType;
     }
     @NotNull(message = "打包时间不能为空！")
+    @Enumerated
     public PackageTime getPackageTime() {
         return packageTime;
     }
@@ -110,6 +121,14 @@ public class Custom extends BaseEntity {
             }
         }
         return departments;
+    }
+
+    @NotNull(message = "业务员不能为空！")
+    @ManyToOne
+    @JoinColumn(name = "salesman_id")
+    @JsonIgnoreProperties({"status","remark","marketGroup","code"})
+    public Salesman getSalesman() {
+        return salesman;
     }
 
     public void setName(String name) {
@@ -166,5 +185,9 @@ public class Custom extends BaseEntity {
 
     public void setDepartments(List<Department> departments) {
         this.departments = departments;
+    }
+
+    public void setSalesman(Salesman salesman) {
+        this.salesman = salesman;
     }
 }

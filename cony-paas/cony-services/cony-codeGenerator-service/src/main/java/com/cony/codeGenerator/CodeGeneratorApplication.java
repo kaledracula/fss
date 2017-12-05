@@ -14,8 +14,8 @@ public class CodeGeneratorApplication {
 
     public static Map<String,String[]> getObjects() {
         Map<String,String[]> map = new HashMap<>();
-        String[] fileNames = {"WareHouse"};
-        map.put("basic",fileNames);
+        String[] fileNames = {"AccountPeriod"};
+        map.put("custom",fileNames);
         return map;
     }
 
